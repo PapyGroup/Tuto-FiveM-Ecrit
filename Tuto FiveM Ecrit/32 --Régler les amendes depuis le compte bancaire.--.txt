@@ -1,0 +1,67 @@
+32 --Régler les amendes depuis le compte bancaire.--
+
+Décompte de la banque comme une vrai facture et non sur l’argent liquide que tu à sur toi
+dans esx-billing remplace votre code par celui-ci.
+
+ESX.RegisterServerCallback('esx_billing:payBill', function(source, cb, id)
+
+    local _source = source
+    local xPlayer = ESX.GetPlayerFromId(_source)
+
+    MySQL.Async.fetchAll(
+        'SELECT * FROM billing WHERE id = @id',
+        {
+            ['@id'] = id
+        },
+        function(result)
+
+            local sender      = result[1].sender
+            local targetType  = result[1].target_type
+            local target      = result[1].target
+            local amount      = result[1].amount
+            local xPlayers    = ESX.GetPlayers()
+            local foundPlayer = nil
+
+            for i=1, #xPlayers, 1 do
+
+                local xPlayer2 = ESX.GetPlayerFromId(xPlayers[i])
+                
+                if xPlayer2.identifier == sender then
+                    foundPlayer = xPlayer2
+                    break
+                end
+            end
+
+            if targetType == 'player' then
+
+                if foundPlayer ~= nil then
+ --if xPlayer.get('money') >= amount then
+
+                        MySQL.Async.execute(
+                            'DELETE from billing WHERE id = @id',
+                            {
+                                ['@id'] = id
+                            },
+                            function(rowsChanged)
+                                     xPlayer.removeAccountMoney('bank', amount)
+                                            account.addMoney(amount)
+                                            TriggerClientEvent('esx:showNotification', xPlayer.source, _U('paid_invoice') .. amount)
+                                             if foundPlayer ~= nil then
+                                    TriggerClientEvent('esx:showNotification', foundPlayer.source, _U('received_payment') .. amount)
+                                end
+                            cb()
+                        end)
+                    --else
+                        --TriggerClientEvent('esx:showNotification', xPlayer.source, _U('no_money'))
+                        --if foundPlayer ~= nil then
+                        --    TriggerClientEvent('esx:showNotification', foundPlayer.source, _U('target_no_money'))
+                        --end
+                    --end
+                end)
+
+            end
+
+        end
+    )
+
+end)

@@ -1,0 +1,24 @@
+13 --Ajouter des véhicules addon au concessionnaire--
+
+Pré-requis
+
+Une bonne compréhension de Comment stream des véhicules
+esx_vehicleshop
+Une base en SQL (Savoir faire un INSERT INTO)
+Un véhicule addon qui nous servira d’exemple la Renault Twizzy.
+Edition BDD
+Dans votre éditeur de DB préféré (PHPMyAdmin) rendez-vous dans la table vehicles puis cliquez sur le bouton SQL.
+
+https://zupimages.net/up/19/19/gyid.png
+
+Cliquez sur le bouton INSERT pour sélectionner la requête que nous allons effectuer. Voici la requête liée à ma Renault Twizy.
+
+SET @NAME := "Twizy";
+SET @MODEL := "twizy";
+SET @PRICE := 7500;
+SET @CATEGORY := "compacts" ;
+
+INSERT INTO `vehicles`(`name`, `model`, `price`, `category`) VALUES (@NAME,@MODEL,@PRICE,@CATEGORY);
+Voilà ce que ça donne :
+
+https://zupimages.net/up/19/19/zipm.png

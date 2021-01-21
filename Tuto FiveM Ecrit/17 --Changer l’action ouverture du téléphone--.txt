@@ -1,0 +1,7 @@
+17 --Changer l’action ouverture du téléphone--
+
+Allez dans le dossier esx_phone puis allez dans le dossier client puis ouvrez main.lua
+Remplacer la ligne 266 par :
+
+if ( IsControlJustReleased( 0, 288 ) or IsDisabledControlJustReleased( 0, 288 ) ) and GetLastInputMethod( 0 ) and (GetGameTimer() - GUI.Time) > 150 then
+La touche configuré dans ce tuto est la touche F1. Pour modifier cette touche changer dans la ligne de code 0, 288.

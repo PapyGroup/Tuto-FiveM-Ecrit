@@ -1,0 +1,18 @@
+19 --Ajout de vêtements moddés vestiaire Police et autres jobs.--
+
+1/ Aller dans esx_policejob/client/main.lua
+2/ Rechercher if Config.EnableNonFreemodePeds then et ensuite ajouter en dessous :
+
+table.insert(elements, {label = 'Swat wear', value = 'freemode_ped', maleModel = 's_m_y_swat_01', femaleModel = 's_m_y_swat_01'})
+3/ Sinon, si vous voulez rank la tenue,rechercher elseif grade == ‘boss’ then et ajouter en dessous :
+
+table.insert(elements, {label = 'Swat wear', value = 'freemode_ped', maleModel = 's_m_y_swat_01', femaleModel = 's_m_y_swat_01'})
+Ca doit ressembler à ça :
+
+elseif grade == 'boss' then
+        table.insert(elements, {label = _U('police_wear'), value = 'boss_wear'})
+        table.insert(elements, {label = 'Swat wear', value = 'freemode_ped', maleModel = 's_m_y_swat_01', femaleModel = 's_m_y_swat_01'})
+    end
+Si vous voulez add d’autres modèles changer le maleModel = ‘s_m_y_swat_01’ par le modèle que vous voulez.
+
+CE TUTO MARCHE POUR TOUTES LES JOBS/SHOPS ET AUTRES

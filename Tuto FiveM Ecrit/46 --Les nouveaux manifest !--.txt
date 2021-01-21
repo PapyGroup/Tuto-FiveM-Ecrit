@@ -1,0 +1,20 @@
+46 --Les nouveaux manifest !--
+
+Le manifest
+Plus connus sous le nom de resource.lua, le manifest permet de déclaré au moteur de jeu, que le dossier est un script qu’il doit prendre en compte, depuis quelques temps , fiveM avvec les mise à jours est passé de resource au fxmanifest, que faut-il faire?
+
+SI VOUS AVEZ MIS A JOUR VOTRE DOSSIER ALPINE(LE SERVEUR) ALORS LES FXMANIFEST SERONT PRIS EN COMPTE
+Doit – on changer ?
+La réponse est oui !, avec les dernières mises à jours il est plus que conseiller de passé vos resource en fxmanifest, je vais donc vous expliquer comment faire
+
+Comment changer ?
+Renommé dans vos script le resource.lua par fxmanifest.lua, ensuite a l’interieur d’un resource.lua vous trouverez un truc comme
+
+resource_manifest_version '44febabe-d386-4d18-afbe-5e627f4af937'
+Il vous suffit de remplacer par :
+
+fx_version 'adamant'
+game 'gta5'
+Attention certains resource.lua non rien à l’intérieur ! IL FAUT QUAND MEME AJOUTER LE FX_VERSION ET LE GAME !
+
+Voila, je vous conseil de le faire car niveau optimisation c’est toujours mieux et puis déjà que fiveM sont connus pour faire des MAJ peut opti alors si on suit pas ce qu’ils font on est pas dans la mouise

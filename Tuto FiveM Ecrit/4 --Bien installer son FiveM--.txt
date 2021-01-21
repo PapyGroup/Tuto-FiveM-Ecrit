@@ -1,0 +1,19 @@
+4/ --Bien installer son FiveM--
+
+Nous allons faire un tuto de base car cela est nécessaire pour certaines personnes sur comment BIEN installer FiveM.
+
+Télécharger le client FiveM.
+Exécutez le programme, cela peut prendre plusieurs minutes en fonction de votre vitesse de connexion.
+Une fenêtre va ensuite s’ouvrir où vous allez devoir choisir le chemin d’accès là ou vous avez installé GTA5.
+
+Pour l’activation du jeu via le Rockstar Social Club, le chemin d’accès de base est :
+C:\Program Files\Rockstar Games\Grand Theft Auto V
+
+Si vous avez acheté le jeu sur Steam le chemin sera :
+C:\Program Files (x86)\Steam\steamapps\common\Grand Theft Auto V
+
+Une fois indiqué, FiveM ouvrira une fenêtre avec un message d’erreur mais n’y faite pas attention, cliquez sur Ok. 
+FiveM met à jour les fichiers de votre jeu, cela peut prendre du temps… Une nouvelle fenêtre s’ouvre vous informant que les fichiers cache doivent être mis à jour, cliquez sur Oui. Une fois terminée, 
+FiveM doit automatiquement s’ouvrir avec une fenêtre d’authentification et une alerte pare-feu Windows devrait aussi apparaître, il faut accepter. 
+Rentrez vos identifiants de votre compte Rockstar Social Club ou Steam selon comment vous avez activé le jeu. La fenêtre principale de FiveM apparaît, allez dans l’onglet multi-joueurs pour faire apparaître la liste des serveurs. 
+Enfin, pour jouer à GTA5 normalement, ouvrez le jeu avec le raccourci de base ou utiliser FiveM.exe pour jouer à la version RP de GTA5.

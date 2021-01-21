@@ -1,0 +1,15 @@
+22 --Mettre des dommages liés aux véhicules--
+
+Il s’agit d’une ressource autonome, mais une version personnalisée de la ressource «baseevents» doit être démarrée sur votre serveur ou modifiée:
+
+local UseBaseevents = false
+
+à
+
+local UseBaseevents = true
+
+Dans les fichiers suivants :
+
+https://github.com/Matspyder51/FiveM-VehiclesDamageModifier
+
+Voilà !

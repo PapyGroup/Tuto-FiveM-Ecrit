@@ -1,0 +1,3 @@
+8 --Comment changer le paiement des salaires--
+
+Le fichier ce trouve dans : extended Config.PaycheckInterval = 7 * 60000 dans es_extended/config.lua

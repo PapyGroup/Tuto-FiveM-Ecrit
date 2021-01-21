@@ -1,0 +1,13 @@
+14 --Mettre des mods sur son serveur--
+
+Tout d’abord, crée un dossier « skins » dans votre répertoire « resource ».
+
+Dans ce dossier, ajouter un dossier « stream » et crée un fichier « resource.lua » et laisser le vide (Attention : il y’a deux dans le nom du fichier resource.lua)
+
+Dans votre dossier « stream », crée un dossier portant le même nom que le fichier skin que vous souhaiter ajouter.
+
+Dans le répertoire principale de votre serveur, éditer le fichier « citmp-server.yml » et ajouter le répertoire « skins ».
+
+Vous pouvez pour vous y retrouver crée plusieurs dossiers skins du moment qu’il respecte le processus ci-dessus afin de vous retrouver dans vos skins (ex: skins-car, skins-map, skins-player, etc…).
+
+Sauvegarder votre fichier « citmp-server.yml », redémarrer votre serveur et profitez de vos skins.

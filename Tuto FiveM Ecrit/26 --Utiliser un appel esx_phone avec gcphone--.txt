@@ -1,0 +1,51 @@
+26 --Utiliser un appel esx_phone avec gcphone--
+
+La partie server.lua esx_addons_gcphone.
+
+RegisterServerEvent('esx_addons_gcphone:startCall')
+AddEventHandler('esx_addons_gcphone:startCall', function (number, message, coords)
+  local source = source
+
+  if PhoneNumbers[number] ~= nil then
+    if number == 'taxi' then
+-- On double le trigger pour évité les non appels
+    TriggerEvent('esx_phone:registerNumber', 'taxi', 'Client', source, coords)
+    TriggerEvent('esx_gcphone:registerNumber', 'taxi', 'Client', true, true)
+
+    else
+        getPhoneNumber(source, function (phone) 
+          notifyAlertSMS(number, {
+            message = message,
+            coords = coords,
+            numero = phone,
+          }, PhoneNumbers[number].sources)
+        end)
+    end
+  else
+    print('Appels sur un service non enregistre => numero : ' .. number)
+  end
+end)
+
+Dans esx_taxijob le server.lua a la ligne 9 il y a :
+
+TriggerEvent('esx_phone:registerNumber', 'taxi', _U('taxi_client'), true, true)
+
+Il suffit d’ajouter la ligne :
+
+TriggerEvent('esx_gcphone:registerNumber', 'taxi', _U('taxi_client'), true, true)
+Juste en dessous
+
+Ensuite on add le nouveau numéro dans Gcphone dans le fichier config.json (html/static/config.json)
+
+{
+    "display": "Taxi",
+    "backgroundColor": "yellow",
+    "subMenu": [{
+      "title": "Appeler un taxi",
+      "eventName": "esx_addons_gcphone:call",
+      "type": {
+        "number": "taxi",
+        "message": "Besoin d'un taxi"
+      }
+    }]
+  }

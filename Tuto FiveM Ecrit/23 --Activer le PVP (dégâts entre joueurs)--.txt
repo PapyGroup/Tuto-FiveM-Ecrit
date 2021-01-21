@@ -1,0 +1,25 @@
+23 --Activer le PVP (dégâts entre joueurs)--
+
+Aller dans : essentialmode \ server \ util.lua
+
+Une fois dedans modifier : false par true
+
+settings.defaultSettings = {
+    ['pvpEnabled'] = true,
+
+Si ça ne fonctionne toujours pas ajouter vous même ça :
+
+Citizen.CreateThread(function()
+    while true do
+        Citizen.Wait(0)
+        
+        if pvpEnabled then
+            for i = 0,32 do
+                if NetworkIsPlayerActive(i) then
+                    SetCanAttackFriendly(GetPlayerPed(i), true, true)
+                    NetworkSetFriendlyFireOption(true)
+                end
+            end
+        end
+    end
+end)

@@ -1,0 +1,16 @@
+44 --Activer le Onesync--
+
+Etape 1 Acheter une clé patreon One Sync
+
+https://www.patreon.com/fivem
+
+Etape 2 Mettre ceci dans votre server.cfg
+
+set onesync_enabled 1
+set onesync_forceMigration true
+set onesync_workaround763185 true
+Etape 3 Ajouter votre clé de licence
+
+sv_licenseKey thekey
+
+Et c’est bon !

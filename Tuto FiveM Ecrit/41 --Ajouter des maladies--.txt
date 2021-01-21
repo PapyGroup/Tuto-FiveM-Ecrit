@@ -1,0 +1,56 @@
+41 --Ajouter des maladies--
+
+Au moment ou vous manger et buvez un nombre et tirer au hasard si celui-ci est comprit dans le système vous aurez une chance de tomber malade.
+
+Avoir installé :
+
+-esx_basicneeds
+-esx_ambulancejob
+-esx_basicneeds
+
+Ajouter dans le client/main.lua :
+
+RegisterNetEvent('esx_basicneeds:onSick')
+AddEventHandler('esx_basicneeds:onSick', function()
+    local rand = math.random(0,100)
+    local playerPed = GetPlayerPed(-1)
+
+    if rand >= 25 and rand <= 32 then
+        if rand >= 25 and rand <= 28 then
+         Citizen.Wait(50000)
+         ESX.ShowNotification('~r~Vous avez la nausée')
+         StartScreenEffect('ChopVision', 0, true)
+         TriggerEvent('esx_animations:startAttitude',"move_m@depressed@a")
+         ShakeGameplayCam("FAMILY5_DRUG_TRIP_SHAKE", 0.1)
+        end
+        if rand >= 29 and rand <= 32 then
+            Citizen.Wait(70000)
+            ESX.ShowNotification('~r~Vous ne vous sentez pas bien')
+            StartScreenEffect('SwitchOpenNeutralFIB5', 0, true)
+            TriggerEvent('esx_animations:startAttitude',"move_m@depressed@a")
+            ShakeGameplayCam("FAMILY5_DRUG_TRIP_SHAKE", 0.2)
+        end
+    end
+end)
+
+Ajouter dans le server/main.lua :
+
+Dans vos ESX.RegisterUsableItem ajouter se Trigger
+
+TriggerClientEvent('esx_basicneeds:onSick', source)
+
+esx_ambulancejob
+Ajouter dans le client/main.lua :
+
+if data.current.value == 'stop_sick' then
+    local closestPlayer, closestDistance = ESX.Game.GetClosestPlayer()
+   
+    if closestPlayer == -1 or closestDistance > 3.0 then
+        ESX.ShowNotification(_U('no_players'))
+    else
+        TriggerEvent('esx_animations:stopAttitude')
+        StopScreenEffect('ChopVision')
+        StopScreenEffect('SwitchOpenNeutralFIB5')
+        TriggerEvent('shakeCam', false)
+    end
+end

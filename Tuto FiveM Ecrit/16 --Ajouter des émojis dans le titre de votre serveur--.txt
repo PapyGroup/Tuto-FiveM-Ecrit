@@ -1,0 +1,6 @@
+16 --Ajouter des émojis dans le titre de votre serveur--
+
+Sur le site suivant :
+https://apps.timwhitlock.info/emoji/tables/unicode
+
+Ensuite, il suffit de copier l’emoji lui-même et de le coller pour que cela fonctionne correctement. Bien que vous soyez sûr que votre server.cfg est encodé avec UTF-8.

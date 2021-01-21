@@ -1,0 +1,20 @@
+5 --Ecrire le nom de son serveur en couleur--
+
+Si quelqu’un est intéressé à changer la couleur de leur nom de serveur. Aller changer dans le fichier «citmp-server.yml»
+
+Pour les couleurs:
+
+^1 = Rouge 
+^2 = Vert
+^3 = Jaune
+^4 = Bleu
+^5 = CYAN
+^6 = Rose
+^7/^0 = Blanc
+^9 = Gris 
+^0= Noir
+
+Exemple : 
+sv_hostname "^1My ^2FXServer ^3Server"
+
+Il faut bien laisser le « ^ » devant et le numéro après

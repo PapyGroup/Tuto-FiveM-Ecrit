@@ -1,0 +1,28 @@
+11 --Modifier les véhicules des différents jobs--
+
+J’ai pu constater que certaines personnes se demandaient comment changer les véhicules des jobs (intérimaires ou non). Je vais prendre exemple le job taxi, dans celui-ci , il faut aller dans config.lua pour changer le véhicule:
+
+Config .AuthorizedVehicules = {
+{
+            model = 'taxi',
+            label = 'Taxi'
+}
+}
+
+C’est très simple , il suffit de changer « model » par le nom de spawn du véhicule , et « label » par le nom qui sera marqué lors du choix de véhicule , exemple “Véhicule Taxi”. Cette fois ci , on va prendre comme exemple le job police , qui celui ci à un système de garage par grade.
+
+Config .AuthorizedVehicules  = {
+          Shared = { 
+},
+
+    recruit = {
+       {
+              model = 'police7' ,
+              label = 'Ford Cruiser'
+        },
+       {
+             model = 'police8' ,
+             label = 'Chevrolet Police'
+       },
+},
+Dans ce cas là il suffit de changer « recruit » par le grade souhaité , « model » par le nom de spawn du véhicule que vous voulez et « label » par le nom qui sera marqué lors du choix de véhicule , exemple : “Véhicule Sergent”

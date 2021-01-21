@@ -1,0 +1,60 @@
+6 --Comment comprendre son server.cfg ou config.cfg--
+
+——-Début du fichier———————
+set es_enableCustomData 1
+set mysql_connection_string « server=Votre IP de base de donnée;database=Le nom de votre BDD;userid=Votre ID utilisateur;password=Votre MDP de base de donnée »
+endpoint_add_tcp « 134.255.231.13:30120 »
+endpoint_add_udp « 134.255.231.13:30120 »
+#you probably don’t want to change these!
+#only change them if you’re using a server with multiple network interfaces
+
+#FIVEM DEFAULT (Présent de base)
+start mapmanager
+start chat
+start spawnmanager
+start sessionmanager
+restart sessionmanager
+start fivem
+start hardcap
+start rconlog
+start scoreboard
+start baseevents
+
+#A vous de rajouter des ressources ensuite sous cette ligne en commençant par « start ».
+
+sv_scriptHookAllowed 0 <– LAMBDA MENU 0 inactif et 1 actif
+
+#change this
+rcon_password : Mot de passe Rcon
+
+sv_hostname « Nom de votre serveur »
+#nested configs!
+exec server_internal.cfg
+
+#loading a server icon (96×96 PNG file) <– A changer par le logo de votre commu dans les fichiers FTP
+load_server_icon hello.png
+
+convars for use from script
+set temp_convar « esx »
+
+#disable announcing? clear out the master by uncommenting this
+sv_master1 «  »
+
+#want to only allow players authenticated with a third-party provider like Steam?
+sv_authMaxVariance 1
+sv_authMinTrust 5
+
+add system admins
+add_ace group.admin command allow allow all commands
+add_ace group.admin command.quit deny but don’t allow quit
+add_principal identifier.steam:110000101691e7b group.admin add the admin to the group
+
+#hide player endpoints in external log output
+sv_endpointprivacy true
+
+#server slots limit (default to 24)
+sv_maxclients 32
+
+set sv_licenseKey « YOUR KEY LICENCE » <– A compléter vous même
+restart sessionmanager
+—————-Fin du fichier—————

@@ -1,0 +1,57 @@
+30 --Rendre un items consommable !--
+
+1)Ouvrir le bon fichier
+
+Se rendre dans vôtre addon « esx_basicneeds », puis aller dans le dossier « server » et ouvrir le fichier « main.lua »
+
+2)Définir le type de l’item
+
+Pour ajouter un item, rien de plus simple il existe 3 types de consommables, avec esx_basicneeds, le premier est la nouriture, le second, les boisson (non alcoolisée) et la troisième est l’alcool
+Donc en premier déterminé ce que doit faire vôtre item, c’est à dire si il doit assoifée et alcoolisé le joueur, ou alors nourrire, et hydrater le joueur
+
+3)Le code pour les 3 types
+
+-Boisson (non alcoolisée)
+
+ESX.RegisterUsableItem('nomitem', function(source)
+    local xPlayer = ESX.GetPlayerFromId(source)
+
+    xPlayer.removeInventoryItem('nomitem', 1)
+
+    TriggerClientEvent('esx_status:add', source, 'thirst', 2000)
+    TriggerClientEvent('esx_basicneeds:onDrink', source)
+end)
+-Alcool
+
+ESX.RegisterUsableItem('nomitem', function(source)
+    local xPlayer = ESX.GetPlayerFromId(source)
+
+    xPlayer.removeInventoryItem('nomitem', 1)
+
+    TriggerClientEvent('esx_status:add', source, 'drunk', 10000)
+    TriggerClientEvent('esx_basicneeds:onDrink', source)
+end)
+-Nourriture
+
+ESX.RegisterUsableItem('nomitem', function(source)
+    local xPlayer = ESX.GetPlayerFromId(source)
+
+    xPlayer.removeInventoryItem('nomitem', 1)
+
+    TriggerClientEvent('esx_status:add', source, 'hunger', diff2500)
+    TriggerClientEvent('esx_basicneeds:onEat', source)
+end)
+La première étape est de remplacer « nomitem » par le nom exact de vôtre item, puis ensuite de modifier les valeurs se situant après le mot entre les  » ces chiffres correspondent au chiffre a ajouter pour le type
+[20:28]
+4)Comprendre le code (pour les curieux)
+
+ESX.RegisterUsableItem(‘soda’, function(source) –> On débute l’enregistrement de l’objet en consommable
+
+local xPlayer = ESX.GetPlayerFromId(source) –> Ici on récupère l’identifiant du joueur dans une variable
+
+xPlayer.removeInventoryItem(‘soda’, 1) –> Ici on supprime l’objet soda (Une fois ici) de l’inventaire du joueur (Grâce a l’id stocker dans la variables)
+
+TriggerClientEvent(‘esx_status:add’, source, ‘thirst’, 2000) –> On débute un évènement dans le client de esx_status, en précisant avec, qui, quoi, combien donc la esx_status source (la variable de l’id joueur) ‘thirst’ pour boisson et 2000 pour la quantité ajoutée
+
+TriggerClientEvent(‘esx_basicneeds:onDrink’, source) –> Ici on débute l’animation configurer dans le client de basicneeds pour boire
+end) –> On ferme l’enregistrement

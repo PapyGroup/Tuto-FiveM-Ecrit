@@ -1,0 +1,45 @@
+27 --Utiliser PhpMyAdmin--
+
+*Tout d’abord utiliser XAMPP (https://www.apachefriends.org/fr/index.html) *
+
+Une fois installer lancer XAMPP Control panel.
+
+Ca vous lance une petit application .. vous starter APPACHE et MySQL [Il est marquer start vous appuyer dessus pour mysql est appache]
+
+une fois sa fait lancer google ou firefox est taper dans la barre de recherche tout en haut http://127.0.0.1/phpmyadmin/
+
+sa vous redirige sur une page mysql est voilà . [PS : si vous désactiver xampp vous ne pourriez pas accéder au site]
+
+Comment crée une base de donner pour ton serveur fivem [SQL]
+
+Pour commencer utiliser soit « WordPress soit Notepad++ » il faut disposer d’une base de données MySQL. Pour cela, il faut avoir un serveur SQL, qu’on installe sur un serveur / vps et un serveur sur lequel seront installés PHP et MySQL. La plupart des hébergeur propose une base par default et c’est bien pratique, car ça évite de devoir tout installer à la main.
+
+Tout d’abord, connectez-vous à votre interface PhpMyAdmin. Pour vous connecter, vous devez utiliser un login et un mot de passe fournis par votre hébergeur quand vous avez crée votre espace hébergement. Une fois connecté, vous allez voir, c’est très facile ^^.
+
+CRÉER LA BASE DE DONNÉES ET SON UTILISATEUR
+
+Une base de donnée, c’est comme une grosse armoire dans laquelle vous trouverez des tiroirs. Les tiroirs, ce seront les tables de votre base de données, c’est ici qu’on ira insérer le contenu de votre site (enfin, quand je dis « on », c’est Notepad++ qui va faire tout le travail). Et dans chaque tiroir, on pourra mettre des piles de contenus. Seulement, cette armoire, elle est protégée, et tout le monde n’y a pas accès.
+
+Il faut donc créer par la suite un utilisateur et un mot de passe, pour pouvoir effectuer des opérations sur la base. Ça a l’air compliqué comme ça, mais vous allez voir que ça se fait très rapidement.
+
+D’abord, on va créer la base de données. Pour ça, il suffit de cliquer sur « nouvelle base de données » tout en haut à gauche, puis de définir un nom pour cette nouvelle base. Ne vous souciez pas l’onglet inter classement, c’est ici qu’on choisit le jeu de caractères qui servira à reconnaître l’alphabet que vous utiliserez (par exemple, si je voulais créer un site en coréen, il me faudrait le jeu de caractères adaptés).
+
+Dans notre cas, on peut utiliser UTF-8 ou iso-8859-1 (latin1). Vous prenez pas la tête, et sélectionnez UTF-8. Ça consomme un peu plus de ressources, mais c’est mieux si vous voulez un site dans plusieurs langues.
+
+Puis, cliquez sur « créer ».
+
+Bravo ! Vous venez de créer une base de données SQL !
+
+Maintenant, il faut créer un utilisateur qui pourra la manipuler : c’est un peu le conducteur d’une voiture. Il a un permis pour rouler (son nom), et la clé pour démarrer la voiture (le mot de passe).
+
+Cliquez sur le nom de votre base de données, situé sur la gauche. Puis, dans le menu en haut sur la droite, cliquez sur « privilèges ». Sur la fenêtre qui s’ouvre, tout en bas, cliquez sur « ajouter un utilisateur ». Donner un nom à votre utilisateur, puis, dans le champ « client », inscrivez « localhost ». Cela veut dire que notre base de données va être utilisée sur un serveur local.
+
+Attention, chez certains hébergeurs, c’est différent, et il faut inscrire le nom de votre serveur SQL. Pas de panique si vous ne savez pas, inscrivez juste « localhost », et ça devrait aller. Dans la majorité des cas, vous aurez toutes les instructions nécessaires sur le site de votre hébergeur, ou dans les courriels que vous recevez à la création de votre espace.
+
+Puis, choisissez le mot de passe de votre utilisateur, qu’il faudra entrer deux fois. Préférez des mots de passe complexes, avec des majuscules, des minuscules, des chiffres etc.
+
+Puis, un peu plus bas, dans la rubrique « base de données pour cet utilisateur », assurez-vous de bien cocher la case « Donner tous les privilèges sur la base de données ».
+
+Et enfin, cliquez sur « exécuter » tout en bas à droite
+
+Et voilà, c’est terminé : vous avez créé votre base et un utilisateur pour la manipuler. Conservez les informations de connexion (nom de la base de données, nom de l’utilisateur, et mot de passe) ça servira dans le prochain tutoriel pour installer WordPress.

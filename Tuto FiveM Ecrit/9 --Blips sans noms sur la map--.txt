@@ -1,0 +1,2 @@
+Le plus souvent, ce problème est lié au script esx_atm qui génère une quantité impressionnante de blips, 
+ainsi la limite d’affichage est atteinte, et plus rien ne s’affiche, la solution consiste donc à désactiver les blips d’esx_atm.

@@ -1,0 +1,20 @@
+25 -- Concernant les ELS--
+
+Télécharger ceci :
+
+https://github.com/MrDaGree/ELS-FiveM/releases/tag/1.1.3(a)
+1) Télécharger els via le lien
+2) Le dézipper avec winrar
+3) Le renommer en ELS-fiveM
+4) l’envoyer dans son dossier ressource
+5) Le start dans son server.cfg
+
+Nous entreront dans le compliquer
+
+6) Mettre le .xml de son véhicule de coté
+7) L’ajoutez au dossier vcf dans els-fivem
+8) Start le .xml dans le config.lua dans els fivem
+9) Apres cela rebooter votre serveur et tester le vehicule
+10) Vous pouvez modifier vos touche dans le config.lua servez vous de ce lien:
+
+https://docs.fivem.net/game-references/controls/

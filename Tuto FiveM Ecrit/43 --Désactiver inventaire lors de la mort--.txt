@@ -1,0 +1,19 @@
+43 --Désactiver inventaire lors de la mort--
+
+Empêcher les joueurs de pouvoir accéder à leurs inventaires après leurs mort.
+Checker : Ligne 96-105 de esx_inventoryhud\client\main.lua
+
+
+Citizen.CreateThread(
+    function()
+        while true do
+            Citizen.Wait(0)
+            local player, distance = ESX.Game.GetClosestPlayer()
+            if not IsPedDeadOrDying(GetPlayerPed(player)) then
+                if IsControlJustReleased(0, Config.OpenControl) and IsInputDisabled(0) then
+                    openInventory()
+                end
+            end
+        end
+    end
+)

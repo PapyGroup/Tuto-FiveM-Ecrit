@@ -1,0 +1,25 @@
+40 --Avoir les numéros de téléphone commençant par « 555 » dans GCPHONE--
+
+Allez dans le dossier server puis ouvrir le fichier server.lua, trouvez la ligne
+
+function getPhoneRandomNumber()
+
+En dessous vous aurez 2 lignes comme ceci :
+
+local numBase0 = math.random(0,999)
+    local numBase1 = math.random(0,9999)
+
+Modifiez la première ligne afin de bloquer le choix des 3 premiers chiffres du numéro de téléphone en 555 :
+
+local numBase0 = math.random(555,555)
+
+Résultat :
+
+--- Pour les numero du style XXX-XXXX
+
+function getPhoneRandomNumber()
+    local numBase0 = math.random(555,555)
+    local numBase1 = math.random(0,9999)
+    local num = string.format("%03d-%04d", numBase0, numBase1 )
+    return num
+end

@@ -1,0 +1,96 @@
+28 --Comment ajouter les actions de permis et carte d’identité de jsfour-idcard avec nb_menuperso--
+
+Ouvrir le client.lua de nb_menuperso et se rendre a la ligne 256
+Vous trouverez a cette endroit la liste des option disponible dans le menu perso le dernier est normalement
+
+
+local elements = {}
+                    table.insert(elements, {label = 'Inventaire',                                 value = 'menuperso_moi_inventaire'})
+                    table.insert(elements, {label = 'Mes factures',                            value = 'menuperso_moi_factures'})
+                    table.insert(elements, {label = 'Téléphone',                                value = 'menuperso_moi_telephone'})
+on va ajouté un menu pour idcard ici ceci donnera donc
+
+ local elements = {}
+                    table.insert(elements, {label = 'Mes papiers',                            value = 'menuidentity'})
+                    table.insert(elements, {label = 'Inventaire',                                 value = 'menuperso_moi_inventaire'})
+                    table.insert(elements, {label = 'Mes factures',                            value = 'menuperso_moi_factures'})
+                    table.insert(elements, {label = 'Téléphone',                                value = 'menuperso_moi_telephone'})       
+Voila maintenant dans le menu on as une nouvelle lignes, « mes papiers »
+
+On va donc crée un sous menu
+donc dans le ESX.UI.Menu.Open qui est juste en dessous
+on voit par exemple :
+
+if data2.current.value == 'menuperso_moi_inventaire' then
+                                openInventaire()
+                            end
+le dernier est avec la fin du menu:
+
+if data2.current.value == 'menuperso_moi_factures' then
+        openFacture()
+    end ---1
+
+                            
+end,--2
+function(data2, menu2)
+    menu2.close()
+end
+
+Donc on va se placer entre 1 et 2
+Voici le code que l’on ajoute pour montré les différents permis
+
+if data2.current.value == 'menuidentity' then
+                                ESX.UI.Menu.Open(
+                                    'default', GetCurrentResourceName(), 'menuidentity',
+                                    {
+                                        title    = 'Mes papiers',
+                                        align    = 'top-left',
+                                        elements = {
+                                            {label = 'Voir Carte d\'identité',  value = 'identityvoir'},
+                                            {label = 'Montrer Carte d\'identité',  value = 'identitymontrer'},
+                                            {label = 'Voir mes permis',  value = 'carvoir'},
+                                            {label = 'Montrer mes permis',  value = 'carmontrer'},
+                                        },
+                                    },
+                                    function(data3, menu3)
+                                        if data3.current.value == 'identityvoir' then
+                                            TriggerServerEvent('jsfour-idcard:open', GetPlayerServerId(PlayerId()), GetPlayerServerId(PlayerId()))
+                                        end
+            
+                                        if data3.current.value == 'identitymontrer' then
+                                            local player, distance = ESX.Game.GetClosestPlayer()
+            
+                                            if distance ~= -1 and distance <= 3.0 then
+                                              TriggerServerEvent('jsfour-idcard:open',
+GetPlayerServerId(PlayerId()), GetPlayerServerId(player))
+                                            else
+                                              ESX.ShowNotification('Personne autour')
+                                            end
+                                            
+                                        end
+                                        --Voiture
+                                        if data3.current.value == 'carvoir' then
+                                            TriggerServerEvent('jsfour-idcard:open', GetPlayerServerId(PlayerId()), GetPlayerServerId(PlayerId()), 'driver')
+                                        end
+            
+                                        if data3.current.value == 'carmontrer' then
+                                            local player, distance = ESX.Game.GetClosestPlayer()
+
+                                            if distance ~= -1 and distance <= 3.0 then
+                                            TriggerServerEvent('jsfour-idcard:open', GetPlayerServerId(PlayerId()), GetPlayerServerId(player), 'driver')
+                                            else
+                                            ESX.ShowNotification('Personne autour')
+                                            end
+                                            
+                                        end
+                                    end,
+                                    function(data3, menu3)
+                                        menu3.close()
+                                    end
+                                )
+                            end
+
+Se code permet de voir sa carte d’identité et ses permis ainsi que les montrer à un joueur proche.
+(tout les permis de véhicule sont compris en un seul)
+Donc maintenant lorsque vous ouvrirez votre menu perso vous aurez une ligne mes papiers et dedans des lignes voirs carte d’identité 
+et montre carte d’identité pareille pour les permis.

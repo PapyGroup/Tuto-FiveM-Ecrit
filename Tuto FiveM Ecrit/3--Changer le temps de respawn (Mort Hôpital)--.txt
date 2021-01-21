@@ -1,0 +1,22 @@
+3/--Changer le temps de respawn (Mort Hôpital)--
+
+Salut à tous,
+
+Je vais vous montrer comment modifier le temps de respawn après être décédé.
+
+Etape 1 Accédez au dossier de votre serveur et ouvrez le dossier de ressources.
+
+Etape 2 Allez dans [system] puis ouvrez spawnmanager
+
+Etape 3 Ouvrez spawnmanager.lua avec tout ce que vous utilisez pour l’édition de fichiers texte
+
+Etape 4 Allez à la ligne 309 
+
+Etape 5 Voir la ligne :
+""if (diedAt and (GetTimeDifference(GetGameTimer(), diedAt) > 2000)) or respawnForced then""
+
+Etape 6 Changez le texte 2000 en n’importe quelle valeur (c’est en millisecondes, évidemment)
+
+Etape 7 Si votre serveur est en cours d’exécution, redémarrez la ressource spawnmanager ET votre ressource de carte (celle qui a les coordonnées de spawn) comme exemple: fivem-map-skater, si elle ne fonctionne pas, démarrez simplement le serveur normalement.
+
+Etape 8 Tuez-vous ( évidemment dans le jeu ) ou laissez quelqu’un vous tuer pour le tester

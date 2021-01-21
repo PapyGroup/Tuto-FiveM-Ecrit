@@ -1,0 +1,31 @@
+36 --Ne plus changer de place en voiture--
+
+Ne pas pouvoir changer de place dans la voiture (coté client):
+
+----------------------------------No Shuffle
+local disableShuffle = true
+function disableSeatShuffle(flag)
+    disableShuffle = flag
+end
+
+Citizen.CreateThread(function()
+    while true do
+        Citizen.Wait(10)
+        local ped = GetPlayerPed(-1)
+
+        if IsPedInAnyVehicle(ped, false) and IsControlJustReleased(0, Keys['X']) then
+          if disableShuffle == true then
+            disableSeatShuffle(false)
+          else
+            disableSeatShuffle(true)
+          end
+        end
+        if IsPedInAnyVehicle(ped, false) and disableShuffle then
+            if GetPedInVehicleSeat(GetVehiclePedIsIn(ped, false), 0) == ped then
+                if GetIsTaskActive(ped, 165) then
+                    SetPedIntoVehicle(ped, GetVehiclePedIsIn(ped, false), 0)
+                end
+            end
+        end
+    end
+end)

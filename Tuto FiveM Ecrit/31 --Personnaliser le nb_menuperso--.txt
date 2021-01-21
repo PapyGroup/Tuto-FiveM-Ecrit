@@ -1,0 +1,47 @@
+31 --Personnaliser le nb_menuperso--
+
+1) Ouvrir les bons fichiers :
+
+Dans nb_menuperso : nb_menuperso –> client.lua
+
+Dans esx_menu_default : esx_menu_default –> html –> css –> app.css
+
+2) faire ces design personnalisé ou autres
+
+Je ne vais pas vous apprendre à faire un petit montage photoshop pour avoir une petite bannière personnalisée pour son serveur, ça vous savez le faire de vous même…
+
+(Si vous voulez les design originaux, ceux-ci se trouvent dans esx_menu_default –> html –> img –> header là, vous trouver tous les design de base classé par catégorie)
+
+Ensuite, quand vous avez votre bannière personnalisée, vous vous rendez sur https://imgur.com/ , vous vous créez un compte et vous y insérer votre photo et vous cliquer dessu, normalement vous avez la possibilité de copier l’adresse qu’ils appellent « Direct Link » comme illustré sur l’image, ensuite, vous copier cette adresse et vous vous rendez dans votre app.css
+
+https://cdn.discordapp.com/attachments/574858440397029376/624683242737631256/unknown.png
+
+3) Introduire nos designs sur notre esx_menu_default
+
+Une fois dans app.css, normalement, vous avez une série de « menu. head.tatata », chaqu’un désigne un menu, par exemple, le « menu. head.perso » c’est celui qui désigne le « Menu personnel », le « menu. head.Modo désigne le menu « Modération ». Vous allez donc entre les guillemets à côté de « background-image : url » dans ces guillemets, vous allez mettre le direct link que vous aviez copier ultérieurement sur l’image de votre choix.
+
+4) Déclarer les designs dans notre nb_menuperso
+
+Vous allez dans votre client.lua et vous chercher la catégorie dans laquelle vous voulez mettre votre design, pour l’exemple, nous cherchons donc celui qui concerne le « Menu personnel », nous avons donc trouvé ces lignes ci :
+
+ESX.UI.Menu.Open(
+            'default', GetCurrentResourceName(), 'menu_perso',
+            {
+                title    = 'Menu Personnel',
+                align    = 'top-left',
+                elements = elements
+            },
+et bien c’est très simple, pour déclaré votre design, vous ajoutez ;
+
+css    =  ' Nom que vous avez dans votre app.css, pour l'exemple nous avons donc "perso" '
+pour finir, nous obtenons ;
+
+ESX.UI.Menu.Open(
+            'default', GetCurrentResourceName(), 'menu_perso',
+            {
+                css     = 'perso'
+                title    = 'Menu Personnel',
+                align    = 'top-left',
+                elements = elements
+            },
+Il vous suffit juste de répété l’action pour chaque menu !

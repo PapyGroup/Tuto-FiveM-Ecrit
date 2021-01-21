@@ -1,0 +1,11 @@
+38 --Corriger le « Slow Query Warning » avec le nouvel es_extended--
+
+C’est un message indiquant qu’une ou plusieurs requêtes excèdent le temps imparti pour se réaliser. Cependant, les resources restent fonctionnelles. Ouvrez le mysql-async puis le fichier mysql-async.js avec votre éditeur de texte (visual code ou sublim text) Cherchez const slowQueryWarningTime pour trouver la ligne
+
+const slowQueryWarningTime = global.GetConvarInt(‹ mysql_slow_query_warning ›, 200);
+Modifiez la valeur 200 par 1500 pour avoir votre ligne comme ceci :
+
+const slowQueryWarningTime = global.GetConvarInt(‹ mysql_slow_query_warning ›, 1500);
+Sauvegardez, videz le cache de votre serveur et redémarrez. Il y a une resource qui crée également des latences et une augmentation du temps de réponse, c’est Webadmin. Il vous suffit de rajouter dans votre server.cfg, tout à la fin pour optimiser la vitesse de transmission d’informations
+
+stop webadmin

@@ -1,0 +1,14 @@
+21 --Ajouter une-des Map(s) sur son serveur--
+
+Déjà faut télécharger OPENIV et convertisseur map editor
+une fois tout cela installer télécharger votre map puis décompresser las
+créer un dossier du nom de votre map et mèttre les fichiers.
+Si les maps sont en .YMAP faut les convertir!
+ouvrez votre OPENIV et mettez vous en « EDIT MOD »
+puis glisser vos .YMAP dedans ressortez les.
+ouvrez le convertisseur map editor et faite
+OPEN
+(choisir son fichier)
+puis une fois fais sa ressortier les si les map sont toujours en .YMAP
+mettez le dans votre dossier [MAP] qui est dans votre Resource
+starter votre map dans le server.cfg

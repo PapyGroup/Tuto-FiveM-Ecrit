@@ -1,0 +1,30 @@
+47 --Nouvelle fonction de es_extended !--
+
+A quoi sert la fonction
+Si vous avez déjà , dernièrement avec le passage au poids des items, extended apportais la fonction xPlayer.canCarryItem(), aujourd’hui extended nous propose une nouvelle fonction, qui est xPLayer.canSwapItem()
+à la manière de canCarry cette fonction vérifie si le joueur peut porter un item en retournant true ou false, mais cette fonction permet de voirs si le joueur pourras porter cet items si on lui enlève un autre !
+
+Je rappel que ces fonctions sont côté serveur
+
+Comment utiliser la fonction
+
+xPLayer.canSwapItem('obj1', 1, 'obj2', 1)
+On l’utilise pour vérifié donc souvent
+
+if xPLayer.canSwapItem('obj1', 1, 'obj2', 1) then
+Ici obj1 est le nom de l’item (nom exact pas le label) que l’on va enlever et obj2 le nom de l’item que l’on veut ajouter a l’inventaire, on va donc regarder si le joueur a suffisamment de place pour prendre obj2 si on lui enlève ojb1 et les chiffres correspondent au quantités !
+
+Un exemple
+Voici le cas d’un script de mineur le joueur doit transformer ses pierres en pierres lavées !
+
+local xPlayer  = ESX.GetPlayerFromId(_source)
+    if xPlayer.canSwapItem('stone', 5, 'washedstones', 5) then
+        xPlayer.addInventoryItem('washedstones', 5)
+        xPlayer.removeInventoryItem("stone", 5)
+    else
+        TriggerClientEvent('esx:showNotification', source, 'plus de place.')
+    end 
+
+Voila la on vérifie que le joueur peut porter 5 pierres lavées si on lui enlève 5 pierres, si il peut alors on enlève les pierres et ajoute les pierres lavées, sinon , on lui met un message comme quoi il n’as pas de place !
+
+N’oubliez pas que pour utiliser cette fonction vous devez soit avoirs la nouvelle version de es_extended ou alors aller l’ajouter vous même dans le script extended (je vous le déconseille)

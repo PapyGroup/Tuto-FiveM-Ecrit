@@ -1,0 +1,62 @@
+29 --Comment config le VdK_Call--
+
+1/ Installation
+
+Téléchargez la ressource ici:
+
+https://github.com/vodkhard/vdk_call
+
+Placez le dossier « vdk_call » dans le dossier de ressources de FiveM
+
+2/Utilisation
+
+Remplissez les variables inService et callActive comme vous le souhaitez
+Utilisez les événements « player: serviceOn » et « player: serviceOff » avec le nom du travail pris lorsque le joueur prend service.
+Utilisez l’événement « call: makeCall » avec le nom du service pour déclencher un appel
+
+3/Aller dans le ficher template.lua
+
+De base vous avez ça :
+
+local working
+
+Citizen.CreateThread(function()
+    while true do
+        Citizen.Wait(1)
+
+        if IsControlJustPressed(1, 38) then
+            if not working then
+                TriggerServerEvent("player:serviceOn", "uber")
+            else
+                TriggerServerEvent("player:serviceOff", "uber")
+            end
+            working = not working
+        end
+
+        -- Trigger a call of Uber with F9
+        if IsControlJustPressed(1, 56) then
+            local plyPos = GetEntityCoords(GetPlayerPed(-1), true)
+            TriggerServerEvent("call:makeCall", "uber", {x=plyPos.x,y=plyPos.y,z=plyPos.z})
+        end
+    end
+end)
+
+Cette partie peux être renommé ou rajouter en plus pour config les fonctionnalités :
+
+        -- Trigger a call of Uber with F9
+        if IsControlJustPressed(1, 56) then
+            local plyPos = GetEntityCoords(GetPlayerPed(-1), true)
+            TriggerServerEvent("call:makeCall", "uber", {x=plyPos.x,y=plyPos.y,z=plyPos.z})
+        end
+    end
+end)
+
+Ou bien :
+
+        -- Trigger a call of Police with F9
+        if IsControlJustPressed(1, 56) then
+            local plyPos = GetEntityCoords(GetPlayerPed(-1), true)
+            TriggerServerEvent("call:makeCall", "police", {x=plyPos.x,y=plyPos.y,z=plyPos.z})
+        end
+    end
+end)

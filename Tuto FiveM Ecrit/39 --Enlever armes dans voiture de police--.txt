@@ -1,0 +1,11 @@
+39 --Enlever armes dans voiture de police--
+
+Ne plus avoir de armes quand on rentre dans des voitures de police/fbi ou autre (coté client):
+
+----- Pas de drop d\'armes voitures flics.
+Citizen.CreateThread(function()
+    while true do
+        Citizen.Wait(10)
+        DisablePlayerVehicleRewards(PlayerId())
+    end
+end)

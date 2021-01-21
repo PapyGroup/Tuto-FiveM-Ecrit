@@ -1,0 +1,30 @@
+45 --Adapter les scripts pour la nouvelle MAJ de extented (weight)--
+
+Pourquoi devoir adapter ces scripts ? Simple car avant les items fonctionnait en limit mais maintenant , extended qui gère et adapte tout vos scripts esx, ne gère plus les limit mais des weight voici donc la nouvelle ligne de code qui est plus simple et fait tout fonctionner, TOUT CECI SE PASSE COTER SERVEUR du script
+
+Avant :
+Avant lors d’un give d’item par un script vous aviez une ligne a peu prêt similaire a celle ci
+
+if item.limit ~= -1 and item.count >= item.limit then
+      TriggerClientEvent('esx:showNotification', source, _U('inv_full'))
+else
+      xPlayer.addInventoryItem(item, 1)
+end
+
+Nouvelle version :
+Qui est au final plus simple :
+
+if xPlayer.canCarryItem(item, 1) then
+    xPlayer.addInventoryItem(item, 1)
+   else                      
+        TriggerClientEvent('esx:showNotification', source, _U('inv_full'))
+end
+
+Explication de la ligne de code.
+
+if xPlayer.canCarryItem(item, 1) then
+Si le joueur peut porter l’objet (variable, nombre) alors
+Si vous voulez mettre le nom de l’objet direct
+if xPlayer.canCarryItem(‘crack’, 1) then
+
+Voila maintenant à vos scripts et bon passage au poids (c’est ironique!)

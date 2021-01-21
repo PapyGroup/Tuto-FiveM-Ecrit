@@ -1,0 +1,14 @@
+2/ --Supprimer « player joined/left » du chat--
+
+Bonjour, J’ai vu des gens qui voudraient supprimer « player joined / left » du chat. C’est très simple, allez dans / resources / [system] / chat> ouvrez sv_chat.lua. 
+Ensuite, vous descendez à « — player join messages » et mettez deux « – » avant toutes ces lignes. Voici la ligne de code :
+
+AddEventHandler('playerConnecting', function()
+TriggerClientEvent('chatMessage', -1, '', { 255, 255, 255 }, '^2* ' .. GetPlayerName(source) .. ' joined.')
+end)
+AddEventHandler('playerDropped', function(reason)
+TriggerClientEvent('chatMessage', -1, '', { 255, 255, 255 }, '^2* ' .. GetPlayerName(source) ..' left (' .. reason .. ')')
+end)
+RegisterCommand('say', function(source, args, rawCommand)
+TriggerClientEvent('chatMessage', -1, (source == 0) and 'console' or GetPlayerName(source), { 255, 255, 255 }, rawCommand:sub(5))
+end)

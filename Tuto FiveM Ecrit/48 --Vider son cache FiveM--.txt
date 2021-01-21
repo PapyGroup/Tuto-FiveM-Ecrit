@@ -1,0 +1,13 @@
+48 --Vider son cache FiveM--
+
+Vider son cache en 2 mn
+
+Clic droit sur FiveM
+Ouvrir l’emplacement du fichier
+FiveM Application Data
+Cache
+Supprimer tous les fichiers sauf le « game »
+
+En image :
+
+https://gyazo.com/5e46d6deec917f35cde339dd894101a4

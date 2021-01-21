@@ -1,0 +1,13 @@
+12 --Comment ajouter une clé de licence à votre VPS GTA Five M--
+
+Une récente mise à jour de FiveM requiert que tous les serveurs de s’enregistrer avec une clé de licence de FiveM.
+Voici comment obtenir votre clé et l’ajouter à votre serveur.
+
+Connectez vous ou créez un compte sur cette page
+https://keymaster.fivem.net/
+et suivez les instructions. (Veuillez sélectionner « VPS » ou « Dedicated Server » pour le type de serveur)
+Copiez la clé de licence FiveM qui a été générée vers un bloc note.
+Aller dans le fichier de configuration /home/gta/server/server.cfg pour éditer le fichier de configuration.
+Défilez vers le bas du fichier et ajouter ou remplacer la ligne « sv_licensekey [key] ».
+Remplacer la valeur [key] avec la clé de licence FiveM que vous avez copié dans le bloc note.
+Redémarrez votre serveur.

@@ -1,0 +1,10 @@
+34 --Faire spawn les véhicules avec une couleur prédéfinie--
+
+Dans le client.lua du gang ou du métier, chercher la ligne
+
+TaskWarpPedIntoVehicle(playerPed,  vehicle,  -1)
+Ajouter au dessus de cette ligne
+
+SetVehicleCustomPrimaryColour(vehicle, 255, 0, 0) --Peinture primaire
+   SetVehicleCustomSecondaryColour(vehicle, 255, 0, 0) --Peinture secondaire
+llez sur un site de référence de couleurs RGB comme celui-ci par exemple : https://htmlcolorcodes.com/fr/ Créer votre couleur et récuperer le code RGB que vous mettrez à la place de 255, 0, 0

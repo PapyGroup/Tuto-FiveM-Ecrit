@@ -1,0 +1,19 @@
+1/ --Comment se mettre admin sur FiveM--
+
+Etape 1 : Pré requis
+
+Télécharger Essentialmode
+Avoir installer es_admin2 (présent dans le essential mode)
+Etape 2 : Déclarer le fichier dans server.cfg
+
+Ecrire « start es_admin2 »
+Et écrire « start essentialmode »
+Etape 3 : Configurer votre base de donnée
+
+Il existe deux groupe sur FiveM, les « users » et les « owners », ces deux groupes n’ont pas les même permission level, le groupe « owner » est de permission 4 et le groupe « user » et de permission 0.
+
+Aller dans votre base de données sur la table « users ».
+Cliquer sur l’onglet « Données »
+Double cliquer sur la ligne du premier utilisateur dans la colonne « permission_level » et modifier la valeur de 0 à 4. Sachant que 0 est nul et 4 élevée.
+Ensuite double cliquer sur la ligne premier utilisateur dans la colonne « group » et modifier par soit « user » (joueur de base) soit « owner » (superadmin).
+Il faut que le grade « user » soit toujours de 0 et « owner » de 4 sinon cela ne fonctionne pas.

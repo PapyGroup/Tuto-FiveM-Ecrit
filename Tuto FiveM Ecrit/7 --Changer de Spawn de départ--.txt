@@ -1,0 +1,11 @@
+7 --Changer de Spawn de départ--
+
+Vous avez deux dossiers maps dans votre serveur (hipster et skater)
+
+Ouvrez les fichiers map.lua vous trouverez des lignes de ce style :
+
+spawnpoint ‘a_m_y_skater_01’ { x = -802.311, y = 175.056, z = 72.8446 }
+a_m_y_skater_01 c’est le nom du model qui sera pré-chargé au spawn (le mec avec le tee shirt jaune par exemple)
+
+et entre {} vous aurez les coordonnées du spawn, 
+alors la solution est simple, vous effacez toutes les lignes et vous n’en laissez qu’une ou deux ou trois… avec les coordonnées que vous voulez.
